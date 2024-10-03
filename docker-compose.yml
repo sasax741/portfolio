@@ -1,0 +1,10 @@
+version: '3.8'  
+
+
+services:
+  portfolio-astro:
+    build: .
+    ports:
+      - 4000:80
+    
+        
