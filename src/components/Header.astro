@@ -1,15 +1,100 @@
 ---
-// Este componente se encarga de mostrar el encabezado del CV
+import '../styles/tailwind.css';
 ---
 
-<header class="bg-blue-600 text-white p-4 text-center">
-    <h1 class="text-3xl font-bold">Luis Sánchez</h1>
-    <h2 class="text-xl">Arquitecto de Software</h2>
-    <nav class="mt-2">
-      <ul class="flex justify-center space-x-4">
-        <li><a href="/" class="hover:underline">Home</a></li>
-        <li><a href="/proyectos" class="hover:underline">Proyectos Open-Source</a></li>
+<header class="bg-blue-600 text-white p-4">
+  <div class="container mx-auto flex flex-col md:flex-row items-center">
+
+    <div class="flex items-center space-x-2 pr-4">
+      <h4 class="text-3xl font-bold">Luis Sánchez</h4>
+
+      <span class="hidden md:inline text-lg">| Arquitecto de Software</span>
+    </div>
+
+
+    <nav class="flex-1 hidden md:flex md:pl-40">
+      <ul class="flex space-x-6">
+        <li>
+          <a 
+            href="/" 
+            class="px-3 py-2 transition-colors duration-300 ease-in-out rounded-md hover:bg-blue-700 hover:text-gray-100"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/projects" 
+            class="px-3 py-2 transition-colors duration-300 ease-in-out rounded-md hover:bg-blue-700 hover:text-gray-100"
+          >
+            Proyectos Open-Source
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/contact" 
+            class="px-3 py-2 transition-colors duration-300 ease-in-out rounded-md hover:bg-blue-700 hover:text-gray-100"
+          >
+            Contacto
+          </a>
+        </li>
       </ul>
     </nav>
-  </header>
+
   
+    <div class="md:hidden ml-auto">
+      <button id="menu-toggle" class="focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+
+  <div id="mobile-menu" class="md:hidden hidden">
+    <nav class="flex flex-col mt-4 space-y-2">
+      <ul class="flex flex-col">
+        <li>
+          <a 
+            href="/" 
+            class="block px-3 py-2 transition-colors duration-300 ease-in-out rounded-md hover:bg-blue-700 hover:text-gray-100"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/projects" 
+            class="block px-3 py-2 transition-colors duration-300 ease-in-out rounded-md hover:bg-blue-700 hover:text-gray-100"
+          >
+            Proyectos Open-Source
+          </a>
+        </li>
+        <li>
+          <a 
+            href="/contact" 
+            class="block px-3 py-2 transition-colors duration-300 ease-in-out rounded-md hover:bg-blue-700 hover:text-gray-100"
+          >
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggleButton = document.getElementById('menu-toggle') as HTMLButtonElement;
+    const mobileMenu = document.getElementById('mobile-menu') as HTMLDivElement;
+
+    menuToggleButton.onclick = function () {
+      mobileMenu.classList.toggle('hidden');
+    };
+  });
+
+
+</script>
